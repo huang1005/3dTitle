@@ -22,7 +22,7 @@ function mountedInit(Cesium: any, container: string = "cesiumContainer") {
 
     const layer = viewer.scene.primitives.add(
         new Cesium.Cesium3DTileset({
-            url: "/3dTiles/wh/tileset.json",
+            url: "/3dTiles/line/tileset.json",
             show: true
         })
     );
