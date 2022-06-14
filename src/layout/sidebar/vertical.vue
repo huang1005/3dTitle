@@ -26,17 +26,24 @@ import router from "@/router";
 import sidebarItem from "./sidebarItem.vue";
 import { reactive, toRefs, computed } from "vue";
 import { useRoute, useRouter } from "vue-router";
-
+import { constantMenus } from "@/router";
 const route = useRoute();
 
-const menuSelect = () => {};
 const menuData = computed(() => {
-  return router.getRoutes();
+  return constantMenus;
 });
 </script>
 <style scoped lang="scss">
 @include b(sidebar) {
-  height: 100vh;
-  width: 200px;
+  width: 210px !important;
+  height: 100%;
+  position: fixed;
+  font-size: 0;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1001;
+  overflow: hidden;
+  box-shadow: 0 0 1px #888;
 }
 </style>
