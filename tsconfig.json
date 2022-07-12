@@ -24,7 +24,13 @@
       "cesium": ["./node_modules/cesium/Source"],
       "@/*": ["./src/*"]
     },
-    "types": ["cesium", "node", "webpack-env", "element-plus/global"],
+    "types": [
+      "cesium",
+      "node",
+      "webpack-env",
+      "three-orbitcontrols",
+      "element-plus/global"
+    ],
     "typeRoots": ["./node_modules/@types/", "./types"]
   },
   "include": [

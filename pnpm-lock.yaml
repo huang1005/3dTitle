@@ -1,15 +1,21 @@
 lockfileVersion: 5.4
 
 specifiers:
+  '@element-plus/icons-vue': ^2.0.4
+  '@iconify-icons/ep': ^1.2.6
+  '@iconify/vue': ^3.2.1
   '@types/cesium': 1.67.14
   '@types/node': ^17.0.42
   '@types/webpack-env': ^1.17.0
   '@vitejs/plugin-vue': ^2.3.3
   cesium: ^1.93.0
-  element-plus: 2.2.2
+  element-plus: 2.2.5
   path: ^0.12.7
   rollup-plugin-external-globals: ^0.6.1
   sass: ^1.51.0
+  sax: ^1.2.4
+  three: ^0.142.0
+  three-orbitcontrols: ^2.110.3
   typescript: ^4.5.4
   unplugin-auto-import: ^0.8.7
   unplugin-vue-components: ^0.19.6
@@ -20,15 +26,21 @@ specifiers:
   vuex: ^4.0.2
 
 dependencies:
+  '@element-plus/icons-vue': 2.0.4_vue@3.2.37
   cesium: 1.94.3
-  element-plus: 2.2.2_vue@3.2.37
+  element-plus: 2.2.5_vue@3.2.37
   path: 0.12.7
   sass: 1.52.3
+  sax: 1.2.4
+  three: 0.142.0
+  three-orbitcontrols: 2.110.3_three@0.142.0
   vue: 3.2.37
   vue-router: 4.0.16_vue@3.2.37
   vuex: 4.0.2_vue@3.2.37
 
 devDependencies:
+  '@iconify-icons/ep': 1.2.6
+  '@iconify/vue': 3.2.1_vue@3.2.37
   '@types/cesium': 1.67.14
   '@types/node': 17.0.42
   '@types/webpack-env': 1.17.0
@@ -69,8 +81,16 @@ packages:
     engines: {node: '>=10'}
     dev: false
 
-  /@element-plus/icons-vue/1.1.4_vue@3.2.37:
-    resolution: {integrity: sha512-Iz/nHqdp1sFPmdzRwHkEQQA3lKvoObk8azgABZ81QUOpW9s/lUyQVUSh0tNtEPZXQlKwlSh7SPgoVxzrE0uuVQ==}
+  /@element-plus/icons-vue/2.0.4_vue@3.2.37:
+    resolution: {integrity: sha512-UeBVBU3fuBsYa9mzM7DgkRztQ1Aftw3sMTI/1gZsqXq2NWiCOi16ZYXXGIc0jFDIu+k6SojzdlxOjv+rN/Y6FQ==}
+    peerDependencies:
+      vue: ^3.2.0
+    dependencies:
+      vue: 3.2.37
+    dev: false
+
+  /@element-plus/icons-vue/2.0.5_vue@3.2.37:
+    resolution: {integrity: sha512-jvNWyKcdvPvMDLTWjghrPY+bYHKqh7hbAFIPe+HWR073zilzt33csREzmKx3VwhdlJUW5u0nCqN+0rwI8jlH+w==}
     peerDependencies:
       vue: ^3.2.0
     dependencies:
@@ -86,6 +106,24 @@ packages:
     dependencies:
       '@floating-ui/core': 0.7.3
     dev: false
+
+  /@iconify-icons/ep/1.2.6:
+    resolution: {integrity: sha512-ljfg+Um/5Y4KWv3LTyWPBzYFfV+eDuH/XgxenCLtMW03xYoF2d1X0UqFlQ5DU2L2rL7lRAmWzjhUE78bWf5d7A==}
+    dependencies:
+      '@iconify/types': 1.1.0
+    dev: true
+
+  /@iconify/types/1.1.0:
+    resolution: {integrity: sha512-Jh0llaK2LRXQoYsorIH8maClebsnzTcve+7U3rQUSnC11X4jtPnFuyatqFLvMxZ8MLG8dB4zfHsbPfuvxluONw==}
+    dev: true
+
+  /@iconify/vue/3.2.1_vue@3.2.37:
+    resolution: {integrity: sha512-c4R6ZgFo1JrJ8aPMMgOPgfU7lBswihMGR+yWe/P4ZukC3kTkeT4+lkt9Pc/itVFMkwva/S/7u9YofmYv57fnNQ==}
+    peerDependencies:
+      vue: 3.x
+    dependencies:
+      vue: 3.2.37
+    dev: true
 
   /@nodelib/fs.scandir/2.1.5:
     resolution: {integrity: sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g==}
@@ -378,13 +416,13 @@ packages:
       ms: 2.1.2
     dev: true
 
-  /element-plus/2.2.2_vue@3.2.37:
-    resolution: {integrity: sha512-yGcj2Ayb0jZO1WbI51tHJ4efhlfWKlBqqGtWbzhq+tcpfaKzJZN+IHRouuFasqn0ZV3tWCDu1jggDR1+9y7XfQ==}
+  /element-plus/2.2.5_vue@3.2.37:
+    resolution: {integrity: sha512-Kl0yn/PQca5YQo3M3NPBP4Xl71NQuMtDx5zNXZGVyl5FjdMujXiFB9SXKYGDUCgFU3d/Rl14vB4Fpmcl2Iz+Hw==}
     peerDependencies:
       vue: ^3.2.0
     dependencies:
       '@ctrl/tinycolor': 3.4.1
-      '@element-plus/icons-vue': 1.1.4_vue@3.2.37
+      '@element-plus/icons-vue': 2.0.5_vue@3.2.37
       '@floating-ui/dom': 0.5.3
       '@popperjs/core': /@sxzz/popperjs-es/2.11.7
       '@types/lodash': 4.14.182
@@ -909,6 +947,10 @@ packages:
       source-map-js: 1.0.2
     dev: false
 
+  /sax/1.2.4:
+    resolution: {integrity: sha512-NqVDv9TpANUjFm0N8uM5GxL36UgKi9/atZw+x7YFnQ8ckwFGKrl4xX4yWtrey3UJm5nP1kUbnYgLopqWNSRhWw==}
+    dev: false
+
   /scule/0.2.1:
     resolution: {integrity: sha512-M9gnWtn3J0W+UhJOHmBxBTwv8mZCan5i1Himp60t6vvZcor0wr+IM0URKmIglsWJ7bRujNAVVN77fp+uZaWoKg==}
     dev: true
@@ -934,6 +976,22 @@ packages:
     resolution: {integrity: sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==}
     engines: {node: '>= 0.4'}
     dev: true
+
+  /three-orbitcontrols/2.110.3_three@0.142.0:
+    resolution: {integrity: sha512-BNNbksJwbN3/MmT0X/gjz5ZCchm7bjk26SUdtJYRxfEYjDfkb/0PeUTHE/KuyJ5vb/owK3mojyy3vcqDx99sRA==}
+    deprecated: |
+      three-js exposes real modules now via three/examples/jsm/...
+      for example to import Orbit, do
+      import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
+    peerDependencies:
+      three: '>= 0.110.0'
+    dependencies:
+      three: 0.142.0
+    dev: false
+
+  /three/0.142.0:
+    resolution: {integrity: sha512-ESjPO+3geFr+ZUfVMpMnF/eVU2uJPOh0e2ZpMFqjNca1wApS9lJb7E4MjwGIczgt9iuKd8PEm6Pfgp2bJ92Xtg==}
+    dev: false
 
   /to-fast-properties/2.0.0:
     resolution: {integrity: sha512-/OaKK0xYrs3DmxRYqL/yDc+FxFUVYhDlXMhRmv3z915w2HF1tnN1omB354j8VUGO/hbRzyD6Y3sA7v7GS/ceog==}

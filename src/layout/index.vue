@@ -2,7 +2,7 @@
   <div class="rv-container">
     <vertical></vertical>
     <div class="rv-main">
-      <navbar></navbar>
+      <!-- <navbar></navbar> -->
       <appMain></appMain>
     </div>
   </div>

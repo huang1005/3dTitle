@@ -8,15 +8,21 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@element-plus/icons-vue": "^2.0.4",
     "cesium": "^1.93.0",
     "element-plus": "2.2.5",
     "path": "^0.12.7",
     "sass": "^1.51.0",
+    "sax": "^1.2.4",
+    "three": "^0.142.0",
+    "three-orbitcontrols": "^2.110.3",
     "vue": "^3.2.37",
     "vue-router": "^4.0.15",
     "vuex": "^4.0.2"
   },
   "devDependencies": {
+    "@iconify-icons/ep": "^1.2.6",
+    "@iconify/vue": "^3.2.1",
     "@types/cesium": "1.67.14",
     "@types/node": "^17.0.42",
     "@types/webpack-env": "^1.17.0",

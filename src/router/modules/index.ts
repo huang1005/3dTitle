@@ -2,20 +2,21 @@ const Layout = () => import("@/layout/index.vue");
 
 const indexRouter = {
     path: "/",
+    name: "home",
     component: Layout,
+    redirect: "/welcome",
     meta: {
-        icon: "question-line",
+        icon: "home-filled",
         title: "首页",
-        rank: 15
+        rank: 1
     },
     children: [
         {
-            path: "/index",
-            name: "reAbout",
+            path: "/welcome",
+            name: "welcome",
             component: () => import("@/views/index/index.vue"),
             meta: {
                 title: "首页",
-                showParent: true
             }
         }
     ]

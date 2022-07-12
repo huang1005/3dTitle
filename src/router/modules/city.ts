@@ -5,9 +5,9 @@ const cityRouter = {
     component: Layout,
 
     meta: {
-        icon: "census",
+        icon: "position",
         title: "城市",
-        rank: 14
+        rank: 4
     },
     children: [
         {

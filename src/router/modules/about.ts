@@ -5,9 +5,9 @@ const aboutRouter = {
     component: Layout,
     redirect: "/about/index",
     meta: {
-        icon: "question-line",
-        title: "关于",
-        rank: 15
+        icon: "monitor",
+        title: "Cesium",
+        rank: 2
     },
     children: [
         {
@@ -15,7 +15,8 @@ const aboutRouter = {
             name: "reAbout",
             component: () => import("@/views/about/index.vue"),
             meta: {
-                title: "关于",
+                title: "Cesium",
+                icon: 'monitor'
             }
         }
     ]

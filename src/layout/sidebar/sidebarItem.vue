@@ -8,12 +8,20 @@
     <el-menu-item
       :index="resolvePath(onlyOneChild.path)"
       :class="{ 'submenu-title-noDropdown': !isNest }"
+      :style="getNoDropdownStyle"
     >
       <template #title>
+        <div v-show="props.item.meta.icon" class="sub-menu-icon">
+          <component
+            :is="useRenderIcon(props.item.meta && props.item.meta.icon)"
+          />
+        </div>
         <div>
-          <span>
-            {{ onlyOneChild.meta.title }}
-          </span>
+          <div>
+            <span>
+              {{ onlyOneChild.meta.title }}
+            </span>
+          </div>
         </div>
       </template>
     </el-menu-item>
@@ -26,8 +34,16 @@
     popper-append-to-body
   >
     <template #title>
-      <el-icon><location /></el-icon>
-      <span>{{ props.item.meta.title }}</span>
+      <div :style="getNoDropdownStyle">
+        <div v-show="props.item.meta.icon" class="sub-menu-icon">
+          <component
+            :is="useRenderIcon(props.item.meta && props.item.meta.icon)"
+          />
+        </div>
+        <div>
+          <span>{{ props.item.meta.title }}</span>
+        </div>
+      </div>
     </template>
     <sidebar-item
       v-for="child in props.item.children"
@@ -41,9 +57,10 @@
 </template>
 
 <script setup lang="ts">
-import { reactive, ref, toRefs, PropType, computed } from "vue";
+import { reactive, ref, toRefs, PropType, computed, CSSProperties } from "vue";
 import path from "path";
 import { childrenType } from "../types";
+import { useRenderIcon } from "@/components/ReIcon/src/hooks";
 const props = defineProps({
   item: {
     type: Object as PropType<any>,
@@ -59,7 +76,12 @@ const props = defineProps({
 });
 
 const onlyOneChild: childrenType = ref(null);
-
+const getNoDropdownStyle = computed((): CSSProperties => {
+  return {
+    display: "flex",
+    alignItems: "center",
+  };
+});
 function hasOneShowingChild(
   children: childrenType[] = [],
   parent: childrenType
@@ -93,4 +115,13 @@ function resolvePath(routePath: string) {
   }
 }
 </script>
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.sub-menu-icon {
+  vertical-align: middle;
+  margin-right: 5px;
+  font-size: 18px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+</style>
