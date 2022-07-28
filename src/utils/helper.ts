@@ -176,7 +176,7 @@ function getParam(
           fetch = cur;
         } else {
           if (isSelfObj(cur)) {
-            const { $$force, ...rest } = cur;
+            const { $$force, ...rest }: any = cur;
             fetch = rest;
           } else {
             ({ fetch, async = async, calls = calls } = cur);

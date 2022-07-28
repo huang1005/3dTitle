@@ -15,7 +15,7 @@ const app = createApp(App)
 for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
     app.component(key, component)
 }
-app.provide("$Cesium", Cesium);
+// app.provide("$Cesium", Cesium);
 app.provide("$Three", THREE);
 app.use(store).use(router).use(ElementPlus).mount('#app')
 

@@ -1,4 +1,4 @@
-let camera
+let camera: { position: { set: (arg0: number, arg1: number, arg2: number) => void; }; lookAt: (arg0: any) => void; }
 function initCamera({ THREE, scene }: any) {
     camera = new THREE.PerspectiveCamera(
         75,
@@ -6,7 +6,7 @@ function initCamera({ THREE, scene }: any) {
         0.1,
         1000
     );
-    camera.position.set(360, 360, 360);
+    camera.position.set(-214.59, 229.8, 96.3);
     camera.lookAt(scene.position);
 }
 export function useCamera() {

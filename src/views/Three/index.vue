@@ -14,7 +14,10 @@ import { useOrbitControls } from "./composition/useOrbitControls";
 import { useCubeLoader } from "./composition/useCubeLoader";
 import { useLoadModel } from "./composition/useLoadModel";
 import { useLight } from "./composition/useLight";
-const $ = (name) => document.querySelector(name);
+import { useMesh } from "./composition/useMesh";
+import { usePlan } from "./composition/usePlan";
+import { useBloom } from "./composition/useBloom";
+const $ = (name: any) => document.querySelector(name);
 const THREE: any = inject("$Three");
 let batchArgs;
 onMounted(() => {
@@ -23,12 +26,15 @@ onMounted(() => {
 
   const initResult = mountedInit({ THREE });
 
-  const { scene, camera, renderer, control } = initResult;
+  const { scene, camera, renderer, control, mesh } = initResult;
   const { loadGltfModel } = useLoadModel();
   const { initRender } = useRender();
   const { initOrbitControls } = useOrbitControls();
   const { initCubeLoader } = useCubeLoader();
-  const { initLight } = useLight();
+  const { initMesh } = useMesh();
+  const { initPlan } = usePlan();
+  const { initBloom } = useBloom();
+  const { initAmbientLight, initDirectionalLight } = useLight();
 
   batchArgs = {
     THREE,
@@ -37,12 +43,17 @@ onMounted(() => {
     renderer,
     control,
     $,
+    mesh,
   };
   initRender(batchArgs);
+  initBloom(batchArgs);
   loadGltfModel(batchArgs);
   initOrbitControls(batchArgs);
   // initCubeLoader(batchArgs);
-  initLight(batchArgs);
+  // initMesh(batchArgs);
+  initPlan(batchArgs);
+  initAmbientLight(batchArgs);
+  initDirectionalLight(batchArgs);
 });
 </script>
 <style scoped lang="scss">

@@ -1,17 +1,20 @@
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import { RGBELoader } from "three/examples/jsm/loaders/RGBELoader";
+import { Mesh } from "three/src/Three";
 
-function mountedInit({ THREE }) {
+function mountedInit({ THREE }: any) {
     const scene = new THREE.Scene();
-    scene.environment = new RGBELoader().load("/gltf/residence/venice_sunset_1k.hdr");
+    scene.background = new THREE.Color(0x06090d);
+    scene.environment = new RGBELoader().load("/gltf/residence/venice_sunset_1k.hdr", () => { });
     scene.environment.mapping = THREE.EquirectangularReflectionMapping;
+    scene.updateMatrixWorld(true);
     const camera = new THREE.PerspectiveCamera(
-        75,
+        50,
         window.innerWidth / window.innerHeight,
         0.1,
-        1000
+        5000
     );
-    camera.position.set(360, 360, 360);
+    camera.position.set(-200, 100, 200);
     camera.lookAt(scene.position);
 
     const renderer = new THREE.WebGLRenderer({
@@ -20,11 +23,14 @@ function mountedInit({ THREE }) {
 
     const control = new OrbitControls(camera, renderer.domElement);
 
+    const mesh = new Mesh()
+
     return {
         scene,
         camera,
         renderer,
-        control
+        control,
+        mesh
     }
 }
 export function useInit() {

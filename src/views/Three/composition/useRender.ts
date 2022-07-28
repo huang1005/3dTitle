@@ -5,19 +5,22 @@ function initRender({ THREE, scene, $, camera, renderer, control }: any) {
     // 添加坐标轴，辅助判断位置
     const axes = new THREE.AxesHelper(1000);
     scene.add(axes);
-    // 设置环境
-    renderer.setClearColor(new THREE.Color("#f1f9fb"));
-    renderer.shadowMap.enabled = false;
 
-    renderer.toneMapping = THREE.ACESFilmicToneMapping;
-    renderer.toneMappingExposure = 0.85;
     // 设置场景大小
     renderer.setSize(
         $("#container").getBoundingClientRect().width,
         $("#container").getBoundingClientRect().height
     );
-    // 渲染器开启阴影效果
-    renderer.shadowMap.enabled = false;
+    // 设置环境
+    renderer.setClearColor(new THREE.Color("#f1f9fb"));
+    renderer.shadowMap.enabled = true;
+    renderer.toneMapping = THREE.ACESFilmicToneMapping;
+    renderer.toneMappingExposure = 0.85;
+    renderer.outputEncoding = THREE.sRGBEncoding;
+    renderer.toneMapping = THREE.ACESFilmicToneMapping;
+    renderer.toneMappingExposure = 1;
+    renderer.shadowMap.enabled = true;
+    renderer.shadowMap.type = THREE.PCFSoftShadowMap;
     $("#container").appendChild(renderer.domElement);
 
     //更新相机控件
@@ -26,7 +29,7 @@ function initRender({ THREE, scene, $, camera, renderer, control }: any) {
     onWindowResize({ camera, renderer })
 }
 
-function render({ scene, camera, renderer, control }) {
+function render({ scene, camera, renderer, control }: any) {
     // 最后的渲染
     let animate = () => {
         //循环调用函数
@@ -43,7 +46,7 @@ function render({ scene, camera, renderer, control }) {
 }
 
 
-function onWindowResize({ camera, renderer }) {
+function onWindowResize({ camera, renderer }: any) {
 
     const width = window.innerWidth;
     const height = window.innerHeight;
@@ -56,7 +59,7 @@ function onWindowResize({ camera, renderer }) {
 }
 
 // 模型的点击事件
-function modelMouseClick(event) {
+function modelMouseClick(event: any) {
     let { THREE, scene, camera } = batchArgs
     var raycaster = new THREE.Raycaster();
     var mouse = new THREE.Vector2();
